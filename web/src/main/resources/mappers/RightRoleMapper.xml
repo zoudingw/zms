@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zdw.zms.dao.RoleRightDao">
+    <resultMap id="BaseResultMap" type="com.zdw.zms.entity.RoleRight">
+        <result column="role_id" property="roleId" jdbcType="VARCHAR"/>
+        <result column="right_id" property="rightId" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        right_id, role_id
+    </sql>
+    <select id="selectByPrimaryByRirghtId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from role_right
+        where right_id = #{rightId,jdbcType=INTEGER}
+    </select>
+    <select id="selectByPrimaryByRoleId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from role_right
+        where role_id = #{roleId,jdbcType=INTEGER}
+    </select>
+</mapper>
