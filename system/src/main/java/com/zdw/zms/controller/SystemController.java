@@ -2,6 +2,7 @@ package com.zdw.zms.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -14,7 +15,8 @@ import java.util.Map;
  *
  * @Copyright:2018, zoudw@szinfinova.com All Rights Reserved
  */
-@Controller
+@RestController
+@RequestMapping("/system")
 public class SystemController {
 
     @RequestMapping("/login")

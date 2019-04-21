@@ -15,7 +15,6 @@ public class RoleServiceImpl implements IRoleService {
 
     @Override
     public Role selectByPrimaryKey(Integer roleId) {
-        return  null;
-        //return roleDao.selectByPrimaryKey(roleId);
+        return roleDao.selectByPrimaryKey(roleId);
     }
 }
