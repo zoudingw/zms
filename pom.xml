@@ -23,6 +23,10 @@
         <java.version>1.8</java.version>
         <mybatis.version>2.0.0</mybatis.version>
         <oauth.version>2.0.6.RELEASE</oauth.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <springfox-swagger>2.4.0</springfox-swagger>
+        <wagger-bootstrap-ui>1.6</wagger-bootstrap-ui>
+        <druid-starter>1.1.10</druid-starter>
     </properties>
 
     <dependencies>
@@ -33,6 +37,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!--去掉自带的jackson依赖,为fastjson作为消息mvc转换器-->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -47,7 +58,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.5</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
@@ -118,6 +129,32 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>${wagger-bootstrap-ui}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid-starter}</version>
         </dependency>
     </dependencies>
 

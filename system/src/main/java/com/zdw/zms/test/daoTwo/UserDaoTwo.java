@@ -1,10 +1,9 @@
-package com.zdw.zms.dao;
+package com.zdw.zms.test.daoTwo;
 
 import com.zdw.zms.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
-
-public interface UserDao{
+public interface UserDaoTwo {
     User selectByPrimaryKey(Integer userId);
 
     User getByName(String userName);

@@ -1,7 +1,22 @@
 
+#server config
 server:
   port: 8089
+  servlet:
+    session:
+      timeout: 30m #seeeion 失效时间30分钟
+    context-path: /zms
+  tomcat:
+    uri-encoding: UTF-8 #tomcat 请求编码
+    max-connections: 1000
+    max-threads: 6000 #tomcat 最大线程数
+    basedir: /Users/zoudingwei/temp #存放tomcat 运行日志和临时文件的目录
+
+
+#spring配置==================================
 spring:
+  profiles:
+    active: study
   servlet:
     multipart:
       max-file-size: 1024MB #最大文件上传的大小
@@ -10,46 +25,53 @@ spring:
     view:
       prefix: /WEB-INF/
       suffix: .jsp
-    static-path-pattern: /static/**
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/springboot-test?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    dbcp2:
-      initial-size: 5
-      min-idle: 5
-      max-idle: 20
-      max-wait-millis: 60000
-      time-between-eviction-runs-millis: 60000
-      validation-query: select 1 from DUAL
-      test-while-idle: true
-      test-on-borrow: false
-      test-on-return: false
-      max-open-prepared-statements: 20
-      pool-prepared-statements: true
+    #static-path-pattern: /static/**
 
-  jpa:
-    hibernate:
-      ddl-auto: update #自动根据实体类创建和跟新数据库
-    show-sql: true #实现sql打印
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #设置搜索引擎
+#数据库配置===================================
+  #datasource:
+   # driver-class-name: com.mysql.jdbc.Driver
+    #username: root
+    #password: 123456
+    #url: jdbc:mysql://localhost:3306/springboot-mappers.test?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    #dbcp2:
+     # initial-size: 5
+      #min-idle: 5
+      #max-idle: 20
+      #max-wait-millis: 60000
+      #time-between-eviction-runs-millis: 60000
+      #validation-query: select 1 from DUAL
+      #mappers.test-while-idle: true
+      #mappers.test-on-borrow: false
+      #mappers.test-on-return: false
+      #max-open-prepared-statements: 20
+      #pool-prepared-statements: true
+
+  #jpa:
+   # hibernate:
+    #  ddl-auto: update #自动根据实体类创建和跟新数据库
+    #show-sql: true #实现sql打印
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #设置搜索引擎
     #open-in-view: true
+
+#服务信息配置============================================
 info:
   app:
     name: springbootTest
     version: 1.0.0
-    test: test
-mybatis:
-  mapper-locations: classpath:mappers/*.xml
-  type-aliases-package: com.zdw.zms.entity
-  configuration:
-    map-underscore-to-camel-case: true
-    use-generated-keys: true
-    cache-enabled: true
-    call-setters-on-nulls: true
+    test: mappers.test
 
 
+#mybatis配置==========================================
+#mybatis:
+ # mapper-locations: classpath:mappers/*.xml
+  #type-aliases-package: com.zdw.zms.entity
+  #configuration:
+   # map-underscore-to-camel-case: true
+    #use-generated-keys: true
+    #cache-enabled: true
+    #call-setters-on-nulls: true
+
+#监控端点配置==========================================
 management:
   endpoints:
     web:

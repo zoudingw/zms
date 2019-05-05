@@ -5,6 +5,8 @@ import com.zdw.zms.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * Author:zoudw
  * Since:JDK 7
@@ -16,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service("userDetailsService")
 public class UserServiceImpl implements IUserService {
 
-    @Autowired
+    @Resource(name = "userDao")
     UserDao userDao;
 
 
