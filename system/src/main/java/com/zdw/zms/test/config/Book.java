@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName Book
@@ -17,14 +18,14 @@ import java.util.List;
  * @Version 1.0
  **/
 @Component
-@ConfigurationProperties(prefix = "mappers.test.book")
+@ConfigurationProperties(prefix = "test.book")
 @Data
 public class Book {
     private String name;
     private double version;
     private double price;
     private List<String> others;
-    private List<Book> books;
+    private Map<String,Book> books;
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date publicationDate = new Date();
 

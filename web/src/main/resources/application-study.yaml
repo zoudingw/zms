@@ -32,14 +32,15 @@ test.book:
     - 足球
       coding
   books:
-    - name: haha
+    book1:
+      name: haha
       version: 1.2
       price: 12.4
-
       others:
         - qq
           ccc
-    - name: xxx
+    book2:
+      name: xxx
       version: 1.3
       price: 20.3
       others:
