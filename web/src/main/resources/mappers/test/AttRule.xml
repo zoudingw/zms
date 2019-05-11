@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zdw.zms.test.daoTwo.AttRulerDao">
+    <resultMap id="BaseResultMap" type="com.zdw.zms.test.entity.AttRule">
+        <id column="id" property="ruleId" jdbcType="VARCHAR"/>
+        <result column="day_of_week" property="dayOfWeek" jdbcType="INTEGER"/>
+        <result column="att_type" property="type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <resultMap id="attInterval" type="com.zdw.zms.test.entity.AttInterval">
+        <id column="enFlag" property="enableFlag" jdbcType="INTEGER"/>
+        <result column="att_type" property="attType" jdbcType="INTEGER"/>
+        <result column="time_interval" property="timeInterval" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, day_of_week, att_type
+    </sql>
+
+    <resultMap id="attRuleVoMap" type="com.zdw.zms.test.entity.AttRule" extends="BaseResultMap">
+        <collection property="timeIntervals" column="id" javaType="java.util.List" ofType="com.zdw.zms.test.entity.AttInterval" select=
+                "com.zdw.zms.test.daoTwo.AttRulerDao.selectIntervalById"/>
+    </resultMap>
+    <select id="selectByPrimaryKey" resultMap="attRuleVoMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from t_rule
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectIntervalById" resultMap="attInterval" parameterType="java.lang.String">
+        SELECT id,day_of_week, enFlag,att_type ,time_interval from (
+SELECT id,day_of_week,FLOOR(att_type/100000) as enFlag,FLOOR(att_type%1000/100) as att_type,interval1 as time_interval from t_rule
+UNION
+SELECT id,day_of_week,FLOOR(att_type/10000)%10 as enFlag,FLOOR(att_type%1000/10)%10 as att_type,interval2 as time_interval from t_rule  WHERE interval2!=''
+UNION
+SELECT id,day_of_week,FLOOR(att_type/1000)%10 as enFlag,FLOOR(att_type%1000)%100%10 as att_type,interval3 as time_interval from t_rule  where interval3!=''
+) as tq where tq.id = #{id,jdbcType=VARCHAR}
+    </select>
+</mapper>

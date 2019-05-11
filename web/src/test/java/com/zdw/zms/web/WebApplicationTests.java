@@ -1,5 +1,7 @@
 package com.zdw.zms.web;
 
+import com.zdw.zms.test.daoTwo.AttRulerDao;
+import com.zdw.zms.test.entity.AttRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,15 @@ public class WebApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("[]"));
         System.out.println(mvc);
+    }
+
+    @Autowired
+    AttRulerDao attRulerDao;
+
+    @Test
+    public void test22(){
+        AttRule attRule = attRulerDao.selectByPrimaryKey("1");
+        System.out.println(attRule);
     }
 
 }
