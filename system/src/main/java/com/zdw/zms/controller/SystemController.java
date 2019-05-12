@@ -1,5 +1,6 @@
 package com.zdw.zms.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ import java.util.Map;
 public class SystemController {
 
     @RequestMapping("/login")
+   // @PreAuthorize("hasAnyRole('user')")
     public  String login(HttpServletRequest request, Map<String,Object> map){
         String attribute = (String) request.getAttribute("shiroLoginFailure");
         if (null != attribute) {

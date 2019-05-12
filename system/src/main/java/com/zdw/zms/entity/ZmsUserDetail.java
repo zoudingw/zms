@@ -21,7 +21,7 @@ public class ZmsUserDetail implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
         for (Role role : user.getRoleList()) {
-            GrantedAuthority authority = new SimpleGrantedAuthority(role.getRoleName());
+            GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_"+role.getRoleName());
             grantedAuthorityList.add(authority);
         }
 

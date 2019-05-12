@@ -3,7 +3,7 @@ logging:
     level:
      root: info
      org:
-       springframework: info
+       springframework: debug
 
 
 

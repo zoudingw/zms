@@ -1,5 +1,8 @@
 package com.zdw.zms.web;
 
+import com.alibaba.fastjson.JSONObject;
+import com.zdw.zms.dao.RightDao;
+import com.zdw.zms.entity.MyRight;
 import com.zdw.zms.test.daoTwo.AttRulerDao;
 import com.zdw.zms.test.entity.AttRule;
 import org.junit.Test;
@@ -11,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,7 +43,16 @@ public class WebApplicationTests {
     @Test
     public void test22(){
         AttRule attRule = attRulerDao.selectByPrimaryKey("1");
-        System.out.println(attRule);
+        System.out.println(JSONObject.toJSONString(attRule));
+    }
+
+    @Autowired
+    RightDao rightDao;
+
+    @Test
+    public  void test33(){
+        List<MyRight> aLl = rightDao.getALl();
+        System.out.println(JSONObject.toJSONString(aLl));
     }
 
 }

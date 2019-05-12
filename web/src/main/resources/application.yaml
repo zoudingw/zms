@@ -46,12 +46,12 @@ spring:
       #max-open-prepared-statements: 20
       #pool-prepared-statements: true
 
-  #jpa:
-   # hibernate:
+  jpa:
+    hibernate:
     #  ddl-auto: update #自动根据实体类创建和跟新数据库
-    #show-sql: true #实现sql打印
-    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #设置搜索引擎
-    #open-in-view: true
+    show-sql: true #实现sql打印
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #设置搜索引擎
+    open-in-view: true
 
 #服务信息配置============================================
 info:

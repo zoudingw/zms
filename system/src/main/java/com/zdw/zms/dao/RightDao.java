@@ -3,6 +3,8 @@ package com.zdw.zms.dao;
 import com.zdw.zms.entity.MyRight;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * Author:zoudw
  * Since:JDK 7
@@ -14,4 +16,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface RightDao {
     MyRight selectByPrimaryKey(Integer rightId);
+    List<MyRight> getALl();
 }
