@@ -22,7 +22,6 @@ import java.nio.file.Paths;
 public class FileController {
 
 
-
     @PostMapping("/upload")
     public String fileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
         if(null == file){

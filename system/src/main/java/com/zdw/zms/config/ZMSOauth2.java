@@ -79,6 +79,10 @@ public class ZMSOauth2 {
 
             http.
                     authorizeRequests()
+                    .antMatchers("/**/**.html","/**/chat/**")
+                    .permitAll()
+                    .antMatchers("/**/**.js")
+                    .permitAll()
                     .accessDecisionManager(accessDecisionManager())
                     .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
                         @Override

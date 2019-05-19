@@ -23,8 +23,8 @@ spring:
       max-request-size: 1024MB #最大文件请求的大小
   mvc:
     view:
-      prefix: /WEB-INF/
-      suffix: .jsp
+      prefix: classpath:/static/
+      suffix: .html
     #static-path-pattern: /static/**
 
 #数据库配置===================================
