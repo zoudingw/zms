@@ -22,6 +22,15 @@ spring:
       url: jdbc:mysql://localhost:3306/springboot-test2?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&allowPublicKeyRetrieval=true&serverTimezone=UTC
 
 
+#mq配置=================================================
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+
+
 
 #学习使用=============================================
 test.book:

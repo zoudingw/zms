@@ -179,6 +179,11 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid-starter}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
     </dependencies>
 
     <!--<build>
