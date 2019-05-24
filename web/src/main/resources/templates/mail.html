@@ -1,0 +1,22 @@
+< !DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>邮件发送</title>
+</head>
+<body>
+<div>邮箱激活</div>
+<div> 注册信息：
+    <table border="1">
+        <tr>
+            <td>有户名</td>
+            <td th:text="${username}"></td>
+        </tr>
+        <tr>
+            <td>用户性别</td>
+            <td th:text="${gender}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

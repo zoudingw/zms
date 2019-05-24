@@ -4,10 +4,13 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @ComponentScan("com.zdw.zms")
 @MapperScan(value = {"com.zdw.zms.dao","com.zdw.zms.test.daoTwo"})
+@EnableScheduling//开启定时器
 public class WebApplication {
 
     public static void main(String[] args) {

@@ -60,6 +60,9 @@ info:
     version: 1.0.0
     test: mappers.test
 
+#开启swagger===========================================
+swagger:
+  enable: true
 
 #mybatis配置==========================================
 #mybatis:
